@@ -1,14 +1,14 @@
 import os
 import math
 
-SOURCE_FILE_PATH = "dataset/labels/2.2.9.txt"
-DESTINATION_DIRECTORY_PATH = "darkflow/dataset-2.2.9/annotations"
+SOURCE_FILE_PATH = f"flat_data/labels/2.2.8.txt"
+DESTINATION_DIRECTORY_PATH = "darkflow/dataset/annotations"
 
 frame_template = """
 <?xml version="1.0"?>
 <annotation>
-    <filename>{}.jpg</filename>
-    <folder>/home/ludel/Workspace/IA/RN/human_detection/darkflow/dataset-2.2.9/frames</folder>
+    <filename>2.2.8-{}.jpg</filename>
+    <folder>/home/ludel/Workspace/IA/RN/human_detection/darkflow/dataset/frames</folder>
     <size>
         <width>640</width>
         <height>360</height>
@@ -47,5 +47,5 @@ with open(SOURCE_FILE_PATH) as f:
             )
         )
 for frame_index, objects in data.items():
-    with open(os.path.join(DESTINATION_DIRECTORY_PATH, f"{frame_index}.xml"), "w") as f:
+    with open(os.path.join(DESTINATION_DIRECTORY_PATH, f'2.2.8.{frame_index}.xml'), "w") as f:
         f.write(frame_template.format(frame_index, "\n".join(objects)))

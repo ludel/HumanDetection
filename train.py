@@ -45,19 +45,18 @@ class Model:
 
 if __name__ == '__main__':
     options = {
-        'model': 'cfg/yolo.cfg',
-        'load': 'bin/yolo.weights',
-        'threshold': 0.2,
+        'model': 'cfg/tiny-yolo-1c.cfg',
+        'load': 'bin/tiny-yolo-v1.1.weights',
+        'threshold': 0.3,
         'train': True,
-        'batch': 1,
-        'epoch': 1,
+        'batch': 20,
+        'epoch': 10,
         'annotation': 'dataset/annotations',
         'dataset': 'dataset/frames',
-        'save': 200,
-        'savepb': 'pb',
-        'summary': 'graph_',
+        'save': 150000,
         'height': 360,
-        'width': 640
+        'width': 640,
+        'gpu': 0.9,
     }
 
     model = Model(**options)
